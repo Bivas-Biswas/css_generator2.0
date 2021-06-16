@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/>
+    <title>CSS Generator</title>
+    <link rel="stylesheet" href="boxshadow.css">
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="navbar_one">
+                <a href="/"><h1>CSS Generator</h1></a>
+            </div>
+            <ul class="navbar_two">
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="./boxshadow.html">Box Shadow</a></li>
+                <li><a href="/">Border Radius</a></li>
+                <li><a href="/">Border</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="left_section">
+            <div class="option_box">
+                <h2>Box Shadow Option</h2>
+                <ul>
+                    <li class="list_items">
+                        <div class="option_name">Horizontal Shadow Length (x)</div>
+                        <div id="horizontal_label" class="option_label">10px</div>
+                        <div class="slider_outerdiv">
+                            <input type="range" min="-200" max="200" value="10" id="horizontal_slider" class="slider">
+                        </div>
+                    </li>
+
+                    <li class="list_items">
+                        <div class="option_name">Vertical Shadow Length (y)</div>
+                        <div id="vertical_label" class="option_label">10px</div>
+                        <div class="slider_outerdiv">
+                            <input type="range" min="-200" max="200" value="10" id="vertical_slider" class="slider">
+                        </div>
+                    </li>
+
+                    <li class="list_items">
+                        <div class="option_name">Blur Radius</div>
+                        <div id="blur_radius_label" class="option_label">5px</div>
+                        <div class="slider_outerdiv">
+                            <input type="range" min="0" max="400" value="5" id="blur_radius_slider" class="slider">
+                        </div>
+                    </li>
+
+                    <li class="list_items">
+                        <div class="option_name">Spread Radius</div>
+                        <div id="spread_radius_label" class="option_label">0px</div>
+                        <div class="slider_outerdiv">
+                            <input type="range" min="-200" max="200" value="0" id="spread_radius_slider" class="slider">
+                        </div>
+                    </li>
+
+                    <li class="list_items">
+                        <div class="option_name shadow_color">Shadow Color</div>
+
+                        <div class="helper">
+                            <input id="shadow_color_label">
+                            <div class="color-picker"></div>
+                        </div>
+                    </li>
+
+                    <li class="list_items">
+                        <div class="option_name">Shadow Color Opacity</div>
+                        <div id="shadow_color_opacity_label" class="option_label">0px</div>
+                        <div class="slider_outerdiv">
+                            <input type="range" min="0" max="100" value="75" id="shadow_color_opacity_slider" class="slider">
+                        </div>
+                    </li>
+
+                    <li class="list_items">
+                        <div class="option_name">Inset</div>
+                        <div class="btn_outerdiv">
+                            <label class="switch" id="inset_checkbox">
+                                <input type="checkbox" class="check">
+                                <span id="on_off"></span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <script src="boxshadow.js"></script>
+</body>
+</html>
