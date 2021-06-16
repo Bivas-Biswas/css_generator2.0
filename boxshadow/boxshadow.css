@@ -3,6 +3,7 @@
     --secondary_color: #FFFFFF;
     --third_color: #39393A;
     --nav-hover-color: #ff7d59;
+    --max-width: 1440px;
 }
 
 .active {
@@ -38,7 +39,7 @@ nav{
 /*navbar 1*/
 .navbar{
     display: flex;
-    width: 1440px;
+    max-width: var(--max-width);
     margin: auto;
     flex-direction: column;
 }
@@ -76,7 +77,7 @@ nav{
 
 /*main*/
 main{
-    max-width: 1440px;
+    max-width: var(--max-width);
     margin: auto;
     padding: 0 50px;
 }
