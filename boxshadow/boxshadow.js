@@ -128,3 +128,21 @@ slider_load(shadow_color_opacity_slider, shadow_color_opacity_label, 100, false)
 
 // inset
 
+
+// copy button
+function copyElementText(id) {
+    let text = document.querySelector(id).innerText;
+    let elem = document.createElement("textarea");
+    document.body.appendChild(elem)
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy")
+    document.body.removeChild(elem)
+}
+
+const copyButton = document.querySelector('#copy_btn')
+copyButton.onclick = function(){
+    copyElementText('#css_code')
+}
+
+
