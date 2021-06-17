@@ -53,7 +53,7 @@ const pickr = Pickr.create({
         // Input / output Options
         interaction: {
             // hex: true,
-            rgba: true,
+            // rgba: true,
             input: true,
             clear: true,
             save: true
