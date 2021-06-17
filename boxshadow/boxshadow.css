@@ -44,11 +44,26 @@ nav{
 }
 
 /*navbar_one 1.1*/
+
+.navbar_one{
+    display: flex;
+    justify-content: space-between;
+}
+
 .navbar_one h1{
     font-size: 3rem;
     margin-left: 50px;
     padding: 5px;
     color: var(--primary_color);
+}
+
+.navbar_one #github{
+    margin-right: 5%;
+    padding-top: 10px;
+}
+
+.navbar_one #github svg:hover{
+    fill: var(--nav-hover-color);
 }
 
 /*navbar_two 1.2*/
