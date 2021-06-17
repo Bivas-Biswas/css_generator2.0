@@ -21,7 +21,6 @@
 /*default*/
 body{
     background-color: #F2EFF7;
-    height: 1080px;
 }
 a{
     text-decoration: none;
@@ -349,3 +348,9 @@ main{
 }
 
 /*footer*/
+footer{
+    margin: 60px;
+    padding: 0 50px;
+    text-align: center;
+    font-size: 1.5rem;
+}
