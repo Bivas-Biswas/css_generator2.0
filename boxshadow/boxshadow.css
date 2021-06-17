@@ -272,7 +272,6 @@ main{
 
 /*right section 1.2*/
 .right_section{
-    /*background-color: antiquewhite;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -283,7 +282,6 @@ main{
 .showcase_box{
     width: 100%;
     height: 360px;
-    /*background-color: rosybrown;*/
     position: relative;
     box-shadow: 0 0 5px rgba(0, 0, 0,.15);
 
