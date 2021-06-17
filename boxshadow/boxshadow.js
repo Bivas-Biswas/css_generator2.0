@@ -1,62 +1,24 @@
-// slider update function
-function slider_color(ele){
-    const curr = ele.value,
-        min = parseInt(ele.getAttribute('min')),
-        max = parseInt(ele.getAttribute('max'))
-    const y = ((curr-min)/(max-min))*100
-    ele.style.background = 'linear-gradient(90deg, rgb(156, 133, 210)' + y + '%, rgb(255 255 255)' + y + '%)'
-}
+const showcase = document.querySelector('.showcase')
+const css_code =document.querySelector('.show_css_code p')
 
-// update slider color and label value, according to the slider value
-function slider_load(sliderName, slider_label , val=1, ifpx=true){
-
-    if(ifpx){
-        slider_label.innerHTML = `${sliderName.value/val} px`
-    }
-    else{
-        slider_label.innerHTML = `${sliderName.value/val}`
-    }
-
-    if(sliderName.value !==0){
-        slider_color(sliderName)
-    }
-    sliderName.addEventListener('input', function (){
-        slider_color(this)
-    })
-
-    sliderName.oninput = function (){
-        if(ifpx) {
-            slider_label.innerHTML = `${this.value / val} px`
-        }
-        else {
-            slider_label.innerHTML = `${this.value / val}`
-        }
-    }
-}
-
-// for Horizontal Shadow Length
 const horizontal_slider = document.querySelector('#horizontal_slider')
 const horizontal_label = document.querySelector('#horizontal_label')
 
-slider_load(horizontal_slider, horizontal_label)
-
-// for Vertical Shadow Length
 const vertical_slider = document.querySelector('#vertical_slider')
 const vertical_label = document.querySelector('#vertical_label')
 
-slider_load(vertical_slider, vertical_label)
-
-// for blur radius
 const blur_radius_slider = document.querySelector('#blur_radius_slider')
 const blur_radius_label = document.querySelector('#blur_radius_label')
 
-slider_load(blur_radius_slider, blur_radius_label)
-
-// for spread radius
 const spread_radius_slider = document.querySelector('#spread_radius_slider')
 const spread_radius_label = document.querySelector('#spread_radius_label')
 
-slider_load(spread_radius_slider, spread_radius_label)
+const shadow_opacity_slider = document.querySelector('#shadow_color_opacity_slider')
+const shadow_opacity_label = document.querySelector('#shadow_color_opacity_label')
+
+const shadow_color = document.querySelector('#shadow_color_label')
+
+const inset_on_off =document.querySelector('#inset_check_on_off')
 
 // for shadow color
 // Simple example, see optional options for more configuration.
@@ -85,12 +47,12 @@ const pickr = Pickr.create({
 
         // Main components
         preview: true,
-        opacity: true,
+        // opacity: true,
         hue: true,
 
         // Input / output Options
         interaction: {
-            hex: true,
+            // hex: true,
             rgba: true,
             input: true,
             clear: true,
@@ -99,35 +61,83 @@ const pickr = Pickr.create({
     }
 });
 
-const shadow_color = document.querySelector('#shadow_color_label')
-
 // update current value
-shadow_color.value = 'rgba(156, 133, 210, 1)'
-shadow_color.style.color = 'rgba(156, 133, 210, 1)'
+shadow_color.value = `rgb(156, 133, 210)`
+shadow_color.style.color = `rgba(156, 133, 210, ${shadow_opacity_slider.value})`
+
+let rgbColor='rgb(156, 133, 210';
+let boxShadow;
 
 pickr.on('change', (...args) => {
-    const active_color_format = document.querySelector('.pcr-type')
-    if(active_color_format.classList.contains('active')) {
-        let color = args[0].toHEXA().toString()
-        shadow_color.value = color
-        shadow_color.style.color = color
-    }
-    else {
-        let color = args[0].toRGBA()
-        let rgbaColor = `rgba(${color[0].toFixed(0)},${color[1].toFixed(0)},${color[2].toFixed(0)},${color[3].toFixed(2)})`
-        shadow_color.value = rgbaColor
-        shadow_color.style.color = rgbaColor
-    }
+    let color = args[0].toRGBA()
+
+    rgbColor = `rgba(${color[0].toFixed(0)},${color[1].toFixed(0)},${color[2].toFixed(0)}`
+
+    let rgbaColor = `${rgbColor},${parseInt(shadow_opacity_slider.value)/100})`
+
+    shadow_color.value = `rgb(${color[0].toFixed(0)}, ${color[1].toFixed(0)}, ${color[2].toFixed(0)})`
+    shadow_color.style.color = rgbaColor
+
+    boxShadow = `${inset_on_off.checked ? `inset`: ''} ${horizontal_slider.value}px ${vertical_slider.value}px ${blur_radius_slider.value}px ${spread_radius_slider.value}px ${rgbColor},${parseInt(shadow_opacity_slider.value)/100})`
+
+    showcase.style.boxShadow = boxShadow
+    css_code.textContent = `box-shadow: ${boxShadow};`
 })
 
-// shadow color opacity
-const shadow_color_opacity_slider = document.querySelector('#shadow_color_opacity_slider')
-const shadow_color_opacity_label = document.querySelector('#shadow_color_opacity_label')
+// slider update function
+function slider_color(ele){
+    const curr = ele.value,
+        min = parseInt(ele.getAttribute('min')),
+        max = parseInt(ele.getAttribute('max'))
+    const y = ((curr-min)/(max-min))*100
+    // console.log(shadow_opacity_slider.value)
+    ele.style.background = 'linear-gradient(90deg, rgb(156, 133, 210)' + y + '%, rgb(255 255 255)' + y + '%)'
+    boxShadow = `${inset_on_off.checked ? `inset`: ''} ${horizontal_slider.value}px ${vertical_slider.value}px ${blur_radius_slider.value}px ${spread_radius_slider.value}px ${rgbColor}, ${parseInt(shadow_opacity_slider.value)/100})`
+    showcase.style.boxShadow =  boxShadow
+    css_code.textContent = `box-shadow: ${boxShadow};`
+}
 
-slider_load(shadow_color_opacity_slider, shadow_color_opacity_label, 100, false)
+// update slider color and label value, according to the slider value
+function slider_load(sliderName, slider_label , val=1, ifpx=true){
 
-// inset
+    if(ifpx){
+        slider_label.innerHTML = `${sliderName.value/val} px`
+    }
+    else{
+        slider_label.innerHTML = `${sliderName.value/val}`
+    }
 
+    if(sliderName.value !==0){
+        slider_color(sliderName)
+    }
+    sliderName.addEventListener('input', function (){
+        slider_color(this)
+    })
+
+    sliderName.oninput = function (){
+        if(ifpx)
+            slider_label.innerHTML = `${this.value / val} px`
+
+        else
+            slider_label.innerHTML = `${this.value / val}`
+    }
+}
+
+// upadte current value
+slider_load(horizontal_slider, horizontal_label)
+slider_load(vertical_slider, vertical_label)
+slider_load(blur_radius_slider, blur_radius_label)
+slider_load(spread_radius_slider, spread_radius_label)
+slider_load(shadow_opacity_slider, shadow_opacity_label, 100, false)
+
+//
+inset_on_off.onclick = function (){
+    console.log(inset_on_off.checked ? boxShadow = `inset ${boxShadow}`: boxShadow = boxShadow.replace('inset', ''))
+    // console.log(boxShadow)
+    showcase.style.boxShadow =  boxShadow
+    css_code.textContent = `box-shadow: ${boxShadow};`
+
+}
 
 // copy button
 function copyElementText(id) {
