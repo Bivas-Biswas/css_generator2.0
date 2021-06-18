@@ -65,20 +65,20 @@ const pickr = Pickr.create({
 shadow_color.value = `rgb(156, 133, 210)`
 shadow_color.style.color = `rgba(156, 133, 210, ${shadow_opacity_slider.value})`
 
-let rgbColor='rgb(156, 133, 210';
+let rgbColor='rgba(156, 133, 210';
 let boxShadow;
 
 pickr.on('change', (...args) => {
     let color = args[0].toRGBA()
 
-    rgbColor = `rgba(${color[0].toFixed(0)},${color[1].toFixed(0)},${color[2].toFixed(0)}`
+    rgbColor = `rgba(${color[0].toFixed(0)}, ${color[1].toFixed(0)}, ${color[2].toFixed(0)}`
 
     let rgbaColor = `${rgbColor},${parseInt(shadow_opacity_slider.value)/100})`
 
     shadow_color.value = `rgb(${color[0].toFixed(0)}, ${color[1].toFixed(0)}, ${color[2].toFixed(0)})`
     shadow_color.style.color = rgbaColor
 
-    boxShadow = `${inset_on_off.checked ? `inset`: ''} ${horizontal_slider.value}px ${vertical_slider.value}px ${blur_radius_slider.value}px ${spread_radius_slider.value}px ${rgbColor},${parseInt(shadow_opacity_slider.value)/100})`
+    boxShadow = `${inset_on_off.checked ? `inset`: ''} ${horizontal_slider.value}px ${vertical_slider.value}px ${blur_radius_slider.value}px ${spread_radius_slider.value}px ${rgbColor}, ${parseInt(shadow_opacity_slider.value)/100})`
 
     showcase.style.boxShadow = boxShadow
     css_code.textContent = `box-shadow: ${boxShadow};`
