@@ -1,0 +1,128 @@
+:root{
+    --primary_color: rgb(130, 100, 180);
+    --secondary_color: #FFFFFF;
+    --third_color: #39393A;
+    --hover-color: #ff7d59;
+    --max-width: 1920px;
+}
+
+::after,*,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*default*/
+body{
+    background-color: #F2EFF7;
+
+}
+a{
+    text-decoration: none;
+}
+
+nav{
+    background-color: var(--secondary_color);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/*navbar 1*/
+.navbar{
+    display: flex;
+    max-width: var(--max-width);
+    margin: auto;
+    flex-direction: column;
+    position: relative;
+}
+
+/*navbar_one 1.1*/
+
+.navbar_one{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar_one a{
+    font-size: 2rem;
+    margin-left: 50px;
+    padding: 5px;
+    color: var(--primary_color);
+    z-index: 1;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.navbar_one #github{
+    margin-left: 4%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.navbar_one #github svg:hover{
+    fill: var(--hover-color);
+}
+
+/*main 2.0*/
+
+/*2.1*/
+.background{
+    background-image: url("img/commingsoon.svg");
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-repeat: no-repeat;
+    top: 0;
+    background-size: contain;
+    background-position: right;
+}
+/*2.2*/
+main{
+    font-size: 3rem;
+    font-weight: 600;
+}
+.title{
+    text-transform: uppercase;
+    color: var(--primary_color);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: flex-start;
+    top: 30%;
+    margin-left: 5vw;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    padding: 40px 100px;
+    border-radius: 10px;
+}
+
+.title p:nth-child(2){
+    background: #FFFFFF;
+    padding: 23px 65px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    border-radius: 0 115px 115px 0;
+    font-size: 4rem;
+    margin: 15px 40px;
+}
+
+#home_btn{
+    color: var(--primary_color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    background: #FFFFFF;
+    border-radius: 40px;
+    text-transform: capitalize;
+    margin-top: 10px;
+    padding: 10px 40px;
+    font-size: 2rem;
+    position: relative;
+    left: 70%;
+    border: 5px solid var(--primary_color);
+}
+
+#home_btn:hover{
+    color: var(--hover-color);
+    border: 5px solid var(--hover-color);
+}
