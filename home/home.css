@@ -1,0 +1,120 @@
+:root{
+    --primary_color: rgb(130, 100, 180);
+    --secondary_color: #FFFFFF;
+    --third_color: #39393A;
+    --hover-color: #ff7d59;
+    --max-width: 1920px;
+}
+
+::after,*,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*default*/
+body{
+    background-color: #F2EFF7;
+    /*height: 100vw;*/
+}
+
+a{
+    text-decoration: none;
+}
+
+/*navbar*/
+nav{
+    background-color: var(--secondary_color);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 15px 5px;
+}
+
+.navbar{
+    display: flex;
+    max-width: var(--max-width);
+    justify-content: space-between;
+    flex-direction: row;
+    margin: auto;
+}
+
+.navbar h1{
+    font-size: 3rem;
+    margin-left: 50px;
+    padding: 5px;
+    color: var(--primary_color);
+}
+
+.navbar #github{
+    margin-right: 5%;
+    padding-top: 10px;
+}
+
+.navbar #github svg:hover{
+    fill: var(--hover-color);
+}
+
+/*main 2.0*/
+main{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 0 50px;
+}
+
+/*2.1*/
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 70px 60px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 40px;
+
+}
+
+.propertics{
+    background: #FFFFFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+    border-radius: 10px;
+    padding: 30px 50px;
+    margin: 10px;
+    color: var(--primary_color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.propertics:hover{
+    color: var(--hover-color);
+}
+
+/*2.2*/
+.about{
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 40px;
+    margin: 40px 0;
+    padding: 30px 40px;
+}
+
+.about p{
+    background: #ffff;
+    padding: 30px 40px;
+    margin: 30px 40px;
+    border-radius: 30px;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--primary_color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+}
+
+/*footer*/
+footer{
+    margin: 60px;
+    padding: 0 50px;
+    text-align: center;
+    font-size: 1.35rem;
+}
+footer a{
+    text-decoration: underline;
+}
