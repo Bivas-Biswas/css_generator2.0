@@ -137,10 +137,13 @@ main{
     float: right;
 }
 
+/*slider outerdiv*/
+
 .slider_outerdiv{
     padding: 0 10px;
 }
 
+/*slider*/
 .slider{
     margin: 10px auto 2px auto;
     width: 100%;
@@ -194,7 +197,7 @@ main{
     float: none;
 }
 
-.helper{
+.color_input{
     display: flex;
     position: relative;
     height: 45px;
